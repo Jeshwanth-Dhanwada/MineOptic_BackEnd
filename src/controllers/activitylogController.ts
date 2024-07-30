@@ -13,7 +13,6 @@ const { DateTime } = require('luxon');
 // import { Batch } from "../entity/Batch";
 // import { EdgeMaster } from "../entity/EdgeMaster";
 
-
 const activityLogSchema = Joi.object({
   branchId: Joi.string().required(),
   activityType: Joi.string().required(),

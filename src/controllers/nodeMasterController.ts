@@ -13,6 +13,7 @@ const nodeMasterSchema = Joi.object({
   nodeName: Joi.string().required(),
   itemDescription: Joi.string().allow('', null),
   nodeType: Joi.string().allow('', null),
+  MachineType: Joi.string().allow('', null),
   nodeCategory: Joi.string().allow('', null),
   width: Joi.string().required(),
   height: Joi.string().required(),
@@ -66,6 +67,7 @@ export const createNodeMaster = async (req: Request, res: Response) => {
     nodeMaster.nodeCategoryId = req.body.nodeCategoryId;
     nodeMaster.nodeCategory = req.body.nodeCategory;
     nodeMaster.nodeType = req.body.nodeType;
+    nodeMaster.MachineType = req.body.MachineType;
     nodeMaster.nodeName = req.body.nodeName;
     nodeMaster.itemDescription = req.body.itemDescription;
     nodeMaster.width = req.body.width;
@@ -142,6 +144,7 @@ export const createBulkNodeMaster = async (req: Request, res: Response) => {
         nodeMaster.nodeCategoryId = element.nodeCategoryId;
         nodeMaster.nodeCategory = element.nodeCategory;
         nodeMaster.nodeType = element.nodeType;
+        nodeMaster.MachineType = element.MachineType;
         nodeMaster.nodeName = element.nodeName;
         nodeMaster.itemDescription = element.itemDescription;
         nodeMaster.width = element.width;
@@ -222,6 +225,7 @@ export const updateNodeMaster = async (req: Request, res: Response) => {
     nodeMaster.nodeCategoryId = req.body.nodeCategoryId;
     nodeMaster.nodeCategory = req.body.nodeCategory;
     nodeMaster.nodeType = req.body.nodeType;
+    nodeMaster.MachineType = req.body.MachineType;
     nodeMaster.nodeName = req.body.nodeName;
     nodeMaster.itemDescription = req.body.itemDescription;
     nodeMaster.width = req.body.width;
@@ -366,6 +370,7 @@ const updateDataNodeMaster = async (data: any) => {
     nodeMaster.nodeCategoryId = data.nodeCategoryId;
     nodeMaster.nodeCategory = data.nodeCategory;
     nodeMaster.nodeType = data.nodeType;
+    nodeMaster.MachineType = data.MachineType;
     nodeMaster.nodeName = data.nodeName;
     nodeMaster.itemDescription = data.itemDescription;
     nodeMaster.width = data.width;
@@ -429,6 +434,7 @@ const createDataNodeMaster = async (data: any) => {
     nodeMaster.nodeCategoryId = data.nodeCategoryId;
     nodeMaster.nodeCategory = data.nodeCategory;
     nodeMaster.nodeType = data.nodeType;
+    nodeMaster.MachineType = data.MachineType;
     nodeMaster.nodeName = data.nodeName;
     nodeMaster.itemDescription = data.itemDescription;
     nodeMaster.width = data.width;

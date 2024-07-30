@@ -30,6 +30,9 @@ export class NodeMaster extends BaseEntity {
   nodeType: string;
 
   @Column({ nullable: true })
+  MachineType: string;
+
+  @Column({ nullable: true })
   nodeCategory: string;
 
   @Column()

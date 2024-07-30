@@ -2,13 +2,11 @@ import { Request, Response } from "express";
 import { InternalServerError } from "../response/InternalServerErrorResponse";
 import * as Joi from "joi";
 import { Shift } from "../entity/Shift";
-// import multer from "multer";
-
 // const storage = multer.diskStorage({
 //   destination: function (_req, _file, cb) {
 //     cb(null, 'uploads')
 //   },
-//   filename: function (_req, _file, cb) {
+//   filename: function (_req,_file, cb) {
 //     // const uniqueSuffix = Date.now()
 //     cb(null, `${_file.originalname}`)
 //   }
