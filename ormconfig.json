@@ -1,0 +1,16 @@
+{
+  "type": "mssql",
+  "host": "JESHWANTH",
+  "port": 1433,
+  "username": "jeshwanth",
+  "password": "7674003060",
+  "database": "MineOptic",
+  "synchronize": true,
+  "logging": true,
+  "entities": ["dist/entity/**/*.js"],
+  "cli": {
+      "entitiesDir": "./src/entity"
+  },
+  "useUnifiedTopology": true,
+  "requestTimeout": 430000
+}
