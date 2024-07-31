@@ -159,6 +159,9 @@ export class NodeMaster extends BaseEntity {
   @Column({ nullable:true })
   outputMeasurable: string;
 
+  @Column({ nullable:true })
+  percentage_rejects: string;
+
   @CreateDateColumn()
   DateTime: Date
 

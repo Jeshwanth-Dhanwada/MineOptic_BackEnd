@@ -50,6 +50,7 @@ const nodeMasterSchema = Joi.object({
   nodeImage: Joi.string().allow('', null),
   inputMeasurable: Joi.string().allow('', null),
   outputMeasurable: Joi.string().allow('', null),
+  percentage_rejects: Joi.string().allow('', null),
   
 
 });
@@ -109,6 +110,7 @@ export const createNodeMaster = async (req: Request, res: Response) => {
     nodeMaster.inputMeasurable = req.body.inputMeasurable
     nodeMaster.outputMeasurable = req.body.outputMeasurable
     nodeMaster.nodeImage = req.body.nodeImage
+    nodeMaster.percentage_rejects = req.body.percentage_rejects
     await nodeMaster.save();
     return res.status(201).json(nodeMaster);
   } catch (error) {
@@ -186,6 +188,7 @@ export const createBulkNodeMaster = async (req: Request, res: Response) => {
         nodeMaster.nodeImage = element.nodeImage
         nodeMaster.inputMeasurable = element.inputMeasurable
         nodeMaster.outputMeasurable = element.outputMeasurable
+        nodeMaster.percentage_rejects = element.percentage_rejects
         responseData.push(await nodeMaster.save());
 
       }
@@ -267,6 +270,7 @@ export const updateNodeMaster = async (req: Request, res: Response) => {
     nodeMaster.nodeImage = req.body.nodeImage
     nodeMaster.inputMeasurable = req.body.inputMeasurable
     nodeMaster.outputMeasurable = req.body.outputMeasurable
+    nodeMaster.percentage_rejects = req.body.percentage_rejects
 
     await nodeMaster.save();
     return res.json(nodeMaster);
@@ -412,6 +416,7 @@ const updateDataNodeMaster = async (data: any) => {
     nodeMaster.nodeImage = data.nodeImage
     nodeMaster.inputMeasurable = data.inputMeasurable
     nodeMaster.outputMeasurable = data.outputMeasurable
+    nodeMaster.percentage_rejects = data.percentage_rejects
 
     await nodeMaster.save();
     return nodeMaster
@@ -476,6 +481,7 @@ const createDataNodeMaster = async (data: any) => {
     nodeMaster.extent = data.extent
     nodeMaster.inputMeasurable = data.inputMeasurable
     nodeMaster.outputMeasurable = data.outputMeasurable
+    nodeMaster.percentage_rejects = data.percentage_rejects
     await nodeMaster.save();
 
     return nodeMaster
