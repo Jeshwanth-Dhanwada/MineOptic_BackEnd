@@ -53,6 +53,7 @@ import ExcavatorHistoryRouter from "./excavatorRoutes"
 import TripDetails from "./tripDetailsRoutes"
 import LocationRoutes from "./locationRoutes"
 
+
 let router = express.Router();
 
 router.use("/branch", branchRouter);

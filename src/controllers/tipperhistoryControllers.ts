@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { InternalServerError } from "../response/InternalServerErrorResponse";
 import * as Joi from "joi";
 import { tipperhistory } from "../entity/tipperhistory";
+import { Between, getRepository, MoreThan } from "typeorm";
 
 const tripHistorySchema = Joi.object({
   inserted_time: Joi.date(),
@@ -116,9 +117,20 @@ export const createtripHistory = async (req: Request, res: Response) => {
   }
 };
 
-export const getAlltripHistory = async (_: Request, res: Response) => {
+export const getAlltripHistory = async (req: Request, res: Response) => {
   try {
-    const truckhistory = await tipperhistory.find();
+    const startTime:any = req.query.startTime;
+    const endTime:any = req.query.endTime;
+    const tipperHistoryRepository = getRepository(tipperhistory);
+    const truckhistory = await tipperHistoryRepository.find({
+      where: {
+        latitude: MoreThan(0),
+        trackTime: Between(startTime, endTime),
+      },
+      order: {
+        trackTime: 'ASC',
+      },
+    });
     return res.json(truckhistory);
   } catch (error) {
     return InternalServerError(res, error);

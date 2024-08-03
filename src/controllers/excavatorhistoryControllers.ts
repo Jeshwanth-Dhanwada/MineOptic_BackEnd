@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { InternalServerError } from "../response/InternalServerErrorResponse";
 import * as Joi from "joi";
 import { excavatorhistory } from "../entity/excavatorhistory"
+import { Between, getRepository, MoreThan } from "typeorm";
 
 const excavatorhistorySchema = Joi.object({
   inserted_time: Joi.date(),
@@ -84,10 +85,21 @@ export const createExcavatorHistory= async (req: Request, res: Response) => {
   }
 };
 
-export const getAllExcavatorHistory = async (_: Request, res: Response) => {
+export const getAllExcavatorHistory = async (req: Request, res: Response) => {
   try {
-    const excavatorHistory = await excavatorhistory.find();
-    return res.json(excavatorHistory);
+    const startTime:any = req.query.startTime;
+    const endTime:any = req.query.endTime;
+    const tipperHistoryRepository = getRepository(excavatorhistory);
+    const Excavatorhistory = await tipperHistoryRepository.find({
+      where: {
+        latitude: MoreThan(0),
+        trackTime: Between(startTime, endTime),
+      },
+      order: {
+        trackTime: 'ASC',
+      },
+    });
+    return res.json(Excavatorhistory);
   } catch (error) {
     return InternalServerError(res, error);
   }
