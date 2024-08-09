@@ -52,6 +52,7 @@ import TruckStateHistoryRouter from "./tipperstatehistoryRoutes"
 import ExcavatorHistoryRouter from "./excavatorRoutes"
 import TripDetails from "./tripDetailsRoutes"
 import LocationRoutes from "./locationRoutes"
+import ExcavatorStatehistory from "./excavatorStateHistory"
 
 
 let router = express.Router();
@@ -106,6 +107,7 @@ router.use("/machineCategory", machineCategoryRoutes);
 router.use("/triphistory", TruckHistoryRouter);
 router.use("/tripstatehistory", TruckStateHistoryRouter);
 router.use("/excavatorhistory", ExcavatorHistoryRouter);
+router.use("/ExcavatorStatehistory", ExcavatorStatehistory);
 router.use("/tripdetails", TripDetails);
 router.use("/locations", LocationRoutes);
 router.post("/downloadExcel", downloadExcel);
