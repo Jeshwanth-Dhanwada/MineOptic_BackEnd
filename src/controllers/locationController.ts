@@ -14,6 +14,7 @@ const locationSchema = Joi.object({
           polygon: Joi.string().allow(null,''),
           site_id: Joi.string().allow(null,''),
           viewonly: Joi.string().allow(null,''),
+          branchId: Joi.string().allow(null,''),
 });
 
 export const createLocations = async (req: Request, res: Response) => {
@@ -32,6 +33,7 @@ export const createLocations = async (req: Request, res: Response) => {
     locate.polygon = req.body.polygon;
     locate.site_id = req.body.site_id;
     locate.viewonly = req.body.viewonly;
+    locate.branchId = req.body.branchId;
     await locate.save();
     return res.status(201).json(locate);
   } catch (error) {

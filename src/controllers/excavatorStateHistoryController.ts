@@ -23,6 +23,7 @@ const excavatorstatehistorySchema = Joi.object({
   engine_indicator: Joi.date().allow(null,""),
   ignition_value: Joi.number().allow(null,""),
   userId: Joi.string().allow(null,""),
+  branchId: Joi.string().allow(null,""),
   DateTime: Joi.date().allow(null,""),
 });
 
@@ -53,6 +54,7 @@ export const createExcavatorStateHistory= async (req: Request, res: Response) =>
           excavatorStateHistory.engine_indicator = req.body.engine_indicator
           excavatorStateHistory.ignition_value = req.body.ignition_value
           excavatorStateHistory.userId = req.body.userId
+          excavatorStateHistory.branchId = req.body.branchId
     
     await excavatorStateHistory.save();
     return res.status(201).json(excavatorStateHistory);
@@ -144,6 +146,7 @@ const updateDataExcavatorStatehistory = async (data: any) => {
     excavatorStateHistory.engine_indicator = data.engine_indicator
     excavatorStateHistory.ignition_value = data.ignition_value
     excavatorStateHistory.userId = data.userId
+    excavatorStateHistory.branchId = data.branchId
 
     await excavatorStateHistory.save();
 
@@ -183,6 +186,7 @@ const createDataExcavatorStatehistory = async (data: any) => {
     excavatorStateHistory.engine_indicator = data.engine_indicator
     excavatorStateHistory.ignition_value = data.ignition_value
     excavatorStateHistory.userId = data.userId
+    excavatorStateHistory.branchId = data.branchId
 
     await excavatorStateHistory.save();
 

@@ -34,6 +34,9 @@ import {
 
           @Column()
           viewonly: string;
+
+          @Column({ nullable: true })
+          branchId: string;
         
         }
         

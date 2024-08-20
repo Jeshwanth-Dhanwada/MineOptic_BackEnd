@@ -163,4 +163,7 @@ import {
           @Column()
           trip_no: number;
 
+          @Column({ nullable: true })
+          branchId: string;
+
         }

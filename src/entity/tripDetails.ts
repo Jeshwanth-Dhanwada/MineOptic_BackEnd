@@ -85,4 +85,7 @@ import {
           @Column({type:'float',nullable:true})
           total_hours: number;
 
+          @Column({ nullable: true })
+          branchId: string;
+
         }

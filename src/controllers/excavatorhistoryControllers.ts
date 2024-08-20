@@ -36,6 +36,7 @@ const excavatorhistorySchema = Joi.object({
   History_Available: Joi.string().required(),
   trip_no: Joi.number().required(),
   userId: Joi.string().allow(null,""),
+  branchId: Joi.string().allow(null,""),
 });
 
 export const createExcavatorHistory= async (req: Request, res: Response) => {
@@ -77,6 +78,7 @@ export const createExcavatorHistory= async (req: Request, res: Response) => {
    excavatorHistory.History_Available = req.body.excavatorHistory
    excavatorHistory.trip_no = req.body.excavatorHistory
    excavatorHistory.userId = req.body.excavatorHistory
+   excavatorHistory.branchId = req.body.branchId
     
     await excavatorHistory.save();
     return res.status(201).json(excavatorHistory);
@@ -160,37 +162,38 @@ const updateDataExcavatorhistory = async (data: any) => {
     if (!excavatorHistory) {
       return { error: error.details[0].message }
     }
-    excavatorHistory.inserted_time =data.excavatorHistory
-   excavatorHistory.hex_sno =data.excavatorHistory
-   excavatorHistory.altitude =data.excavatorHistory
-   excavatorHistory.direction =data.excavatorHistory
-   excavatorHistory.engineStatus =data.excavatorHistory
-   excavatorHistory.excavator_id =data.excavatorHistory
-   excavatorHistory.excavator_status =data.excavatorHistory
-   excavatorHistory.lat_direction =data.excavatorHistory
-   excavatorHistory.latitude =data.excavatorHistory
-   excavatorHistory.location_id =data.excavatorHistory
-   excavatorHistory.long_direction =data.excavatorHistory
-   excavatorHistory.longitude =data.excavatorHistory
-   excavatorHistory.operator_id =data.excavatorHistory
-   excavatorHistory.shift_id =data.excavatorHistory
-   excavatorHistory.site_id =data.excavatorHistory
-   excavatorHistory.speed =data.excavatorHistory
-   excavatorHistory.state =data.excavatorHistory
-   excavatorHistory.trackTime =data.excavatorHistory
-   excavatorHistory.RFID_flag =data.excavatorHistory
-   excavatorHistory.odometer =data.excavatorHistory
-   excavatorHistory.power_indicator =data.excavatorHistory
-   excavatorHistory.satellite_no =data.excavatorHistory
-   excavatorHistory.seen_by_tipperid =data.excavatorHistory
-   excavatorHistory.ignition_change_flag =data.excavatorHistory
-   excavatorHistory.stored_data_flag =data.excavatorHistory
-   excavatorHistory.ble_signal_strength =data.excavatorHistory
-   excavatorHistory.distance =data.excavatorHistory
-   excavatorHistory.tipperState =data.excavatorHistory
-   excavatorHistory.History_Available =data.excavatorHistory
-   excavatorHistory.trip_no =data.excavatorHistory
-   excavatorHistory.userId =data.excavatorHistory
+   excavatorHistory.inserted_time = data.inserted_time
+   excavatorHistory.hex_sno = data.hex_sno
+   excavatorHistory.altitude = data.altitude
+   excavatorHistory.direction = data.direction
+   excavatorHistory.engineStatus = data.engineStatus
+   excavatorHistory.excavator_id = data.excavator_id
+   excavatorHistory.excavator_status = data.excavator_status
+   excavatorHistory.lat_direction = data.lat_direction
+   excavatorHistory.latitude = data.latitude
+   excavatorHistory.location_id = data.location_id
+   excavatorHistory.long_direction = data.long_direction
+   excavatorHistory.longitude = data.longitude
+   excavatorHistory.operator_id = data.operator_id
+   excavatorHistory.shift_id = data.shift_id
+   excavatorHistory.site_id = data.site_id
+   excavatorHistory.speed = data.speed
+   excavatorHistory.state = data.state
+   excavatorHistory.trackTime = data.trackTime
+   excavatorHistory.RFID_flag = data.RFID_flag
+   excavatorHistory.odometer = data.odometer
+   excavatorHistory.power_indicator = data.power_indicator
+   excavatorHistory.satellite_no = data.satellite_no
+   excavatorHistory.seen_by_tipperid = data.seen_by_tipperid
+   excavatorHistory.ignition_change_flag = data.ignition_change_flag
+   excavatorHistory.stored_data_flag = data.stored_data_flag
+   excavatorHistory.ble_signal_strength = data.ble_signal_strength
+   excavatorHistory.distance = data.distance
+   excavatorHistory.tipperState = data.tipperState
+   excavatorHistory.History_Available = data.History_Available
+   excavatorHistory.trip_no = data.trip_no
+   excavatorHistory.userId = data.userId
+   excavatorHistory.branchId = data.branchId
 
     await excavatorHistory.save();
 
@@ -211,37 +214,38 @@ const createDataExcavatorhistory = async (data: any) => {
   try {
 
     const excavatorHistory = new excavatorhistory();
-    excavatorHistory.inserted_time =data.excavatorHistory
-    excavatorHistory.hex_sno =data.excavatorHistory
-    excavatorHistory.altitude =data.excavatorHistory
-    excavatorHistory.direction =data.excavatorHistory
-    excavatorHistory.engineStatus =data.excavatorHistory
-    excavatorHistory.excavator_id =data.excavatorHistory
-    excavatorHistory.excavator_status =data.excavatorHistory
-    excavatorHistory.lat_direction =data.excavatorHistory
-    excavatorHistory.latitude =data.excavatorHistory
-    excavatorHistory.location_id =data.excavatorHistory
-    excavatorHistory.long_direction =data.excavatorHistory
-    excavatorHistory.longitude =data.excavatorHistory
-    excavatorHistory.operator_id =data.excavatorHistory
-    excavatorHistory.shift_id =data.excavatorHistory
-    excavatorHistory.site_id =data.excavatorHistory
-    excavatorHistory.speed =data.excavatorHistory
-    excavatorHistory.state =data.excavatorHistory
-    excavatorHistory.trackTime =data.excavatorHistory
-    excavatorHistory.RFID_flag =data.excavatorHistory
-    excavatorHistory.odometer =data.excavatorHistory
-    excavatorHistory.power_indicator =data.excavatorHistory
-    excavatorHistory.satellite_no =data.excavatorHistory
-    excavatorHistory.seen_by_tipperid =data.excavatorHistory
-    excavatorHistory.ignition_change_flag =data.excavatorHistory
-    excavatorHistory.stored_data_flag =data.excavatorHistory
-    excavatorHistory.ble_signal_strength =data.excavatorHistory
-    excavatorHistory.distance =data.excavatorHistory
-    excavatorHistory.tipperState =data.excavatorHistory
-    excavatorHistory.History_Available =data.excavatorHistory
-    excavatorHistory.trip_no =data.excavatorHistory
-    excavatorHistory.userId =data.excavatorHistory
+    excavatorHistory.inserted_time = data.inserted_time
+    excavatorHistory.hex_sno = data.hex_sno
+    excavatorHistory.altitude = data.altitude
+    excavatorHistory.direction = data.direction
+    excavatorHistory.engineStatus = data.engineStatus
+    excavatorHistory.excavator_id = data.excavator_id
+    excavatorHistory.excavator_status = data.excavator_status
+    excavatorHistory.lat_direction = data.lat_direction
+    excavatorHistory.latitude = data.latitude
+    excavatorHistory.location_id = data.location_id
+    excavatorHistory.long_direction = data.long_direction
+    excavatorHistory.longitude = data.longitude
+    excavatorHistory.operator_id = data.operator_id
+    excavatorHistory.shift_id = data.shift_id
+    excavatorHistory.site_id = data.site_id
+    excavatorHistory.speed = data.speed
+    excavatorHistory.state = data.state
+    excavatorHistory.trackTime = data.trackTime
+    excavatorHistory.RFID_flag = data.RFID_flag
+    excavatorHistory.odometer = data.odometer
+    excavatorHistory.power_indicator = data.power_indicator
+    excavatorHistory.satellite_no = data.satellite_no
+    excavatorHistory.seen_by_tipperid = data.seen_by_tipperid
+    excavatorHistory.ignition_change_flag = data.ignition_change_flag
+    excavatorHistory.stored_data_flag = data.stored_data_flag
+    excavatorHistory.ble_signal_strength = data.ble_signal_strength
+    excavatorHistory.distance = data.distance
+    excavatorHistory.tipperState = data.tipperState
+    excavatorHistory.History_Available = data.History_Available
+    excavatorHistory.trip_no = data.trip_no
+    excavatorHistory.userId = data.userId
+    excavatorHistory.branchId = data.branchId
 
     await excavatorHistory.save();
 

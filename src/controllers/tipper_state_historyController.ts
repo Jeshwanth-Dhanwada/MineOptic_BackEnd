@@ -40,6 +40,7 @@ const tripStateHistorySchema = Joi.object({
   Exc3_RSSI: Joi.number().allow(null,""),
   Exc3_Distance: Joi.number().allow(null,""),
   vibration_value: Joi.number().allow(null,""),
+  branchId: Joi.string().allow(null,""),
 });
 
 export const createtripStateHistory = async (req: Request, res: Response) => {
@@ -86,6 +87,7 @@ export const createtripStateHistory = async (req: Request, res: Response) => {
           truckstatehistory.Exc3_RSSI = req.body.Exc3_RSSI
           truckstatehistory.Exc3_Distance = req.body.Exc3_Distance
           truckstatehistory.vibration_value = req.body.vibration_value
+          truckstatehistory.branchId = req.body.branchId
     
     await truckstatehistory.save();
     return res.status(201).json(truckstatehistory);
@@ -188,6 +190,7 @@ const updateDatatruckstatehistory = async (data: any) => {
           truckstatehistory.Exc3_RSSI = data.Exc3_RSSI
           truckstatehistory.Exc3_Distance = data.Exc3_Distance
           truckstatehistory.vibration_value = data.vibration_value
+          truckstatehistory.branchId = data.branchId
 
     await truckstatehistory.save();
 
@@ -244,6 +247,7 @@ const createDatatruckstatehistory = async (data: any) => {
           truckstatehistory.Exc3_RSSI = data.Exc3_RSSI
           truckstatehistory.Exc3_Distance = data.Exc3_Distance
           truckstatehistory.vibration_value = data.vibration_value
+          truckstatehistory.branchId = data.branchId
 
     await truckstatehistory.save();
 

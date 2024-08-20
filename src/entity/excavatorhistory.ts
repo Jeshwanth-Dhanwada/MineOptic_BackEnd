@@ -103,6 +103,9 @@ import {
 
           @Column({ nullable: true })
           userId: string;
+
+          @Column({ nullable: true })
+          branchId: string;
         
           @CreateDateColumn()
           DateTime: Date;

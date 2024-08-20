@@ -118,4 +118,7 @@ import {
           @Column({nullable:true})
           vibration_value: number;
 
+          @Column({ nullable: true })
+          branchId: string;
+
         }

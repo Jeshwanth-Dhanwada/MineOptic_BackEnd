@@ -29,6 +29,7 @@ const tripDetailsSchema = Joi.object({
   fuel_level: Joi.number().allow(null,""),
   total_fuel_consumed: Joi.number().allow(null,""),
   total_hours: Joi.number().allow(null,""),
+  branchId: Joi.string().allow(null,""),
 });
 
 export const createtripDetails = async (req: Request, res: Response) => {
@@ -39,31 +40,32 @@ export const createtripDetails = async (req: Request, res: Response) => {
   }
   try {
           const tripdetails = new tripDetails();
-          tripdetails.inserted_time = req.body.tripdetails
-          tripdetails.hex_sno = req.body.tripdetails
-          tripdetails.driver_id = req.body.tripdetails
-          tripdetails.first_excavator_id = req.body.tripdetails
-          tripdetails.first_operator_id = req.body.tripdetails
-          tripdetails.location_id = req.body.tripdetails
-          tripdetails.pdate = req.body.tripdetails
-          tripdetails.second_excavator_id = req.body.tripdetails
-          tripdetails.second_operator_id = req.body.tripdetails
-          tripdetails.shift_id = req.body.tripdetails
-          tripdetails.te_start_time = req.body.tripdetails
-          tripdetails.tipper_id = req.body.tripdetails
-          tripdetails.tipper_trip_no = req.body.tripdetails
-          tripdetails.trip_duration = req.body.tripdetails
-          tripdetails.trip_flag = req.body.tripdetails
-          tripdetails.trip_no = req.body.tripdetails
-          tripdetails.trip_time = req.body.tripdetails
-          tripdetails.upload_file = req.body.tripdetails
-          tripdetails.material_id = req.body.tripdetails
-          tripdetails.trip_distance = req.body.tripdetails
-          tripdetails.odometer = req.body.tripdetails
-          tripdetails.coolant_level = req.body.tripdetails
-          tripdetails.fuel_level = req.body.tripdetails
-          tripdetails.total_fuel_consumed = req.body.tripdetails
-          tripdetails.total_hours = req.body.tripdetails
+          tripdetails.inserted_time = req.body.inserted_time
+          tripdetails.hex_sno = req.body.hex_sno
+          tripdetails.driver_id = req.body.driver_id
+          tripdetails.first_excavator_id = req.body.first_excavator_id
+          tripdetails.first_operator_id = req.body.first_operator_id
+          tripdetails.location_id = req.body.location_id
+          tripdetails.pdate = req.body.pdate
+          tripdetails.second_excavator_id = req.body.second_excavator_id
+          tripdetails.second_operator_id = req.body.second_operator_id
+          tripdetails.shift_id = req.body.shift_id
+          tripdetails.te_start_time = req.body.te_start_time
+          tripdetails.tipper_id = req.body.tipper_id
+          tripdetails.tipper_trip_no = req.body.tipper_trip_no
+          tripdetails.trip_duration = req.body.trip_duration
+          tripdetails.trip_flag = req.body.trip_flag
+          tripdetails.trip_no = req.body.trip_no
+          tripdetails.trip_time = req.body.trip_time
+          tripdetails.upload_file = req.body.upload_file
+          tripdetails.material_id = req.body.material_id
+          tripdetails.trip_distance = req.body.trip_distance
+          tripdetails.odometer = req.body.odometer
+          tripdetails.coolant_level = req.body.coolant_level
+          tripdetails.fuel_level = req.body.fuel_level
+          tripdetails.total_fuel_consumed = req.body.total_fuel_consumed
+          tripdetails.total_hours = req.body.total_hours
+          tripdetails.branchId = req.body.branchId
     
     await tripdetails.save();
     return res.status(201).json(tripdetails);
@@ -130,31 +132,32 @@ const updatetruckDetails = async (data: any) => {
     if (!tripdetails) {
       return { error: error.details[0].message }
     }
-    tripdetails.inserted_time = data.tripdetails
-    tripdetails.hex_sno = data.tripdetails
-    tripdetails.driver_id = data.tripdetails
-    tripdetails.first_excavator_id = data.tripdetails
-    tripdetails.first_operator_id = data.tripdetails
-    tripdetails.location_id = data.tripdetails
-    tripdetails.pdate = data.tripdetails
-    tripdetails.second_excavator_id = data.tripdetails
-    tripdetails.second_operator_id = data.tripdetails
-    tripdetails.shift_id = data.tripdetails
-    tripdetails.te_start_time = data.tripdetails
-    tripdetails.tipper_id = data.tripdetails
-    tripdetails.tipper_trip_no = data.tripdetails
-    tripdetails.trip_duration = data.tripdetails
-    tripdetails.trip_flag = data.tripdetails
-    tripdetails.trip_no = data.tripdetails
-    tripdetails.trip_time = data.tripdetails
-    tripdetails.upload_file = data.tripdetails
-    tripdetails.material_id = data.tripdetails
-    tripdetails.trip_distance = data.tripdetails
-    tripdetails.odometer = data.tripdetails
-    tripdetails.coolant_level = data.tripdetails
-    tripdetails.fuel_level = data.tripdetails
-    tripdetails.total_fuel_consumed = data.tripdetails
-    tripdetails.total_hours = data.tripdetails
+    tripdetails.inserted_time = data.inserted_time
+    tripdetails.hex_sno = data.hex_sno
+    tripdetails.driver_id = data.driver_id
+    tripdetails.first_excavator_id = data.first_excavator_id
+    tripdetails.first_operator_id = data.first_operator_id
+    tripdetails.location_id = data.location_id
+    tripdetails.pdate = data.pdate
+    tripdetails.second_excavator_id = data.second_excavator_id
+    tripdetails.second_operator_id = data.second_operator_id
+    tripdetails.shift_id = data.shift_id
+    tripdetails.te_start_time = data.te_start_time
+    tripdetails.tipper_id = data.tipper_id
+    tripdetails.tipper_trip_no = data.tipper_trip_no
+    tripdetails.trip_duration = data.trip_duration
+    tripdetails.trip_flag = data.trip_flag
+    tripdetails.trip_no = data.trip_no
+    tripdetails.trip_time = data.trip_time
+    tripdetails.upload_file = data.upload_file
+    tripdetails.material_id = data.material_id
+    tripdetails.trip_distance = data.trip_distance
+    tripdetails.odometer = data.odometer
+    tripdetails.coolant_level = data.coolant_level
+    tripdetails.fuel_level = data.fuel_level
+    tripdetails.total_fuel_consumed = data.total_fuel_consumed
+    tripdetails.total_hours = data.total_hours
+    tripdetails.branchId = data.branchId
 
     await tripdetails.save();
 
@@ -175,31 +178,32 @@ const createtruckDetails = async (data: any) => {
   try {
 
     const tripdetails = new tripDetails();
-          tripdetails.inserted_time = data.tripdetails
-          tripdetails.hex_sno = data.tripdetails
-          tripdetails.driver_id = data.tripdetails
-          tripdetails.first_excavator_id = data.tripdetails
-          tripdetails.first_operator_id = data.tripdetails
-          tripdetails.location_id = data.tripdetails
-          tripdetails.pdate = data.tripdetails
-          tripdetails.second_excavator_id = data.tripdetails
-          tripdetails.second_operator_id = data.tripdetails
-          tripdetails.shift_id = data.tripdetails
-          tripdetails.te_start_time = data.tripdetails
-          tripdetails.tipper_id = data.tripdetails
-          tripdetails.tipper_trip_no = data.tripdetails
-          tripdetails.trip_duration = data.tripdetails
-          tripdetails.trip_flag = data.tripdetails
-          tripdetails.trip_no = data.tripdetails
-          tripdetails.trip_time = data.tripdetails
-          tripdetails.upload_file = data.tripdetails
-          tripdetails.material_id = data.tripdetails
-          tripdetails.trip_distance = data.tripdetails
-          tripdetails.odometer = data.tripdetails
-          tripdetails.coolant_level = data.tripdetails
-          tripdetails.fuel_level = data.tripdetails
-          tripdetails.total_fuel_consumed = data.tripdetails
-          tripdetails.total_hours = data.tripdetails
+          tripdetails.inserted_time = data.inserted_time
+          tripdetails.hex_sno = data.hex_sno
+          tripdetails.driver_id = data.driver_id
+          tripdetails.first_excavator_id = data.first_excavator_id
+          tripdetails.first_operator_id = data.first_operator_id
+          tripdetails.location_id = data.location_id
+          tripdetails.pdate = data.pdate
+          tripdetails.second_excavator_id = data.second_excavator_id
+          tripdetails.second_operator_id = data.second_operator_id
+          tripdetails.shift_id = data.shift_id
+          tripdetails.te_start_time = data.te_start_time
+          tripdetails.tipper_id = data.tipper_id
+          tripdetails.tipper_trip_no = data.tipper_trip_no
+          tripdetails.trip_duration = data.trip_duration
+          tripdetails.trip_flag = data.trip_flag
+          tripdetails.trip_no = data.trip_no
+          tripdetails.trip_time = data.trip_time
+          tripdetails.upload_file = data.upload_file
+          tripdetails.material_id = data.material_id
+          tripdetails.trip_distance = data.trip_distance
+          tripdetails.odometer = data.odometer
+          tripdetails.coolant_level = data.coolant_level
+          tripdetails.fuel_level = data.fuel_level
+          tripdetails.total_fuel_consumed = data.total_fuel_consumed
+          tripdetails.total_hours = data.total_hours
+          tripdetails.branchId = data.branchId
 
     await tripdetails.save();
 
