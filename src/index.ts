@@ -11,6 +11,7 @@ var cors = require('cors')
 const cookieParser = require('cookie-parser');
 const multer = require('multer')
 const path = require('path');
+const { Pool } = require('pg');
 
 try {
 
@@ -101,6 +102,33 @@ try {
       res.send(data);
     });
   });
+
+
+  // Set up the PostgreSQL connection pool
+  const pool = new Pool({
+    user: 'jeshwanth',
+    host: 'JESHWANTH',
+    database: 'MineOptic',
+    password: '7674003060',
+    port: 1433,
+  });
+  // Example with Express and PostgreSQL
+  app.get('/columns', async (req, res) => {
+    try {
+      console.log(pool,"columnss")
+      const result = await pool.query(`
+        SELECT column_name
+        FROM information_schema.columns
+        WHERE table_name = 'tipper_state_history'
+      `);
+      console.log(result,"columnss")
+      res.json(result.rows.map(row => row.column_name));
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Server Error');
+    }
+  });
+
 
 } catch (error) {
 

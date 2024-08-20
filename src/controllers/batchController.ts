@@ -201,47 +201,6 @@ export const updateBulkBatch = async (req: Request, res: Response) => {
 
 };
 
-// export const updateBatchData = async (data: any) => {
-//   const { error } = batchSchema.validate(data);
-
-//   if (error) {
-//     return { error: error.details[0].message }
-//   }
-
-//   try {
-//     const newBatch = await Batch.findOne(data.id);
-//     if (!newBatch) {
-//       return { error: error.details[0].message }
-//     }
-//     newBatch.branchId = data.branchId;
-//     newBatch.activityId = data.activityId;
-//     newBatch.consumedActivityId = data.consumedActivityId;
-//     newBatch.shift = data.shift;
-//     newBatch.date = data.date;
-//     newBatch.MachinenodeId = data.MachinenodeId;
-//     newBatch.jobId = data.jobId;
-//     newBatch.FGID = data.FGID;
-//     newBatch.ItemCode = data.ItemCode;
-//     newBatch.MaterialId = data.MaterialId;
-//     newBatch.units1 = data.units1;
-//     newBatch.Availablequantity1 = data.Availablequantity1;
-//     newBatch.Consumedquantity1 = data.Consumedquantity1;
-//     newBatch.Balancequantity1 = data.Balancequantity1;
-//     newBatch.units2 = data.units2;
-//     newBatch.Availablequantity2 = data.Availablequantity2;
-//     newBatch.Consumedquantity2 = data.Consumedquantity2;
-//     newBatch.Balancequantity2 = data.Balancequantity2;
-//     newBatch.userId = data.userId;
-
-//     await newBatch.save();
-
-//     return newBatch
-
-//   } catch (error) {
-//     return error
-//   }
-// };
-
 export const updateBatchData = async (data: any) => {
   const { error } = batchSchema.validate(data);
 
@@ -281,43 +240,6 @@ export const updateBatchData = async (data: any) => {
     return error
   }
 };
-
-// export const createBatchData = async (data: any) => {
-//   const { error } = batchSchema.validate(data);
-
-//   if (error) {
-//     return { error: error.details[0].message }
-//   }
-//   try {
-//     const newBatch = new Batch();
-//     newBatch.branchId = data.branchId;
-//     newBatch.activityId = data.activityId;
-//     newBatch.consumedActivityId = data.consumedActivityId;
-//     newBatch.shift = data.shift;
-//     newBatch.date = data.date;
-//     newBatch.MachinenodeId = data.MachinenodeId;
-//     newBatch.jobId = data.jobId;
-//     newBatch.FGID = data.FGID;
-//     newBatch.ItemCode = data.ItemCode;
-//     newBatch.MaterialId = data.MaterialId;
-//     newBatch.units1 = data.units1;
-//     newBatch.Availablequantity1 = data.Availablequantity1;
-//     newBatch.Consumedquantity1 = data.Consumedquantity1;
-//     newBatch.Balancequantity1 = data.Balancequantity1;
-//     newBatch.units2 = data.units2;
-//     newBatch.Availablequantity2 = data.Availablequantity2;
-//     newBatch.Consumedquantity2 = data.Consumedquantity2;
-//     newBatch.Balancequantity2 = data.Balancequantity2;
-//     newBatch.userId = data.userId;
-
-//     await newBatch.save();
-
-//     return newBatch
-//   } catch (error) {
-//     console.log(error)
-//     return error
-//   }
-// };
 
 export const createBatchData = async (data: any) => {
   const { error } = batchSchema.validate(data);

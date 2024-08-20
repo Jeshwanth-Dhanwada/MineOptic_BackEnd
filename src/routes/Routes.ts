@@ -53,6 +53,8 @@ import ExcavatorHistoryRouter from "./excavatorRoutes"
 import TripDetails from "./tripDetailsRoutes"
 import LocationRoutes from "./locationRoutes"
 import ExcavatorStatehistory from "./excavatorStateHistory"
+import ColorConfiguration from "./colorConfigRoutes"
+import ToolTIpCinfiguration from "./toolTipsConfigRoutes"
 
 
 let router = express.Router();
@@ -110,6 +112,8 @@ router.use("/excavatorhistory", ExcavatorHistoryRouter);
 router.use("/ExcavatorStatehistory", ExcavatorStatehistory);
 router.use("/tripdetails", TripDetails);
 router.use("/locations", LocationRoutes);
+router.use("/colorconfig", ColorConfiguration);
+router.use("/tooltipconfig", ToolTIpCinfiguration);
 router.post("/downloadExcel", downloadExcel);
 
 export = router;

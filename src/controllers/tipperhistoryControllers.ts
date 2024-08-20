@@ -118,9 +118,11 @@ export const createtripHistory = async (req: Request, res: Response) => {
 };
 
 export const getAlltripHistory = async (req: Request, res: Response) => {
+  console.log("stattime")
   try {
     const startTime:any = req.query.startTime;
     const endTime:any = req.query.endTime;
+    console.log(endTime,"stattime")
     const tipperHistoryRepository = getRepository(tipperhistory);
     const truckhistory = await tipperHistoryRepository.find({
       where: {
