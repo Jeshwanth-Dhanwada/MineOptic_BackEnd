@@ -55,6 +55,7 @@ import LocationRoutes from "./locationRoutes"
 import ExcavatorStatehistory from "./excavatorStateHistory"
 import ColorConfiguration from "./colorConfigRoutes"
 import ToolTIpCinfiguration from "./toolTipsConfigRoutes"
+import EqpTypeRouter from "./eqpTypeRoutes"
 
 
 let router = express.Router();
@@ -114,6 +115,7 @@ router.use("/tripdetails", TripDetails);
 router.use("/locations", LocationRoutes);
 router.use("/colorconfig", ColorConfiguration);
 router.use("/tooltipconfig", ToolTIpCinfiguration);
+router.use("/eqptypes", EqpTypeRouter);
 router.post("/downloadExcel", downloadExcel);
 
 export = router;
